@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        nav a { margin-right: 20px; cursor: pointer; }
+        .tab { display: none; margin-top: 20px; }
+        .active { display: block; }
+        img { border: 2px solid black; }
+    </style>
+    <script>
+        function openTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.style.display = 'none');
+            document.getElementById(tabName).style.display = 'block';   
+        }
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Game Automation Dashboard</h1>
+
+<nav>
+    <a onclick="openTab('daily')">Daily Tasks</a>
+    <a onclick="openTab('trial')">Trial</a>
+    <a onclick="openTab('settings')">Settings</a>
+    <a onclick="openTab('monitor')">Live Monitor</a>
+</nav>
+
+<!-- DAILY TAB -->
+<div id="daily" class="tab active">
+    <h2>Daily Tasks</h2>
+    <button onclick="location.href='/run_daily'">Daily</button>
+    <button onclick="location.href='/run_side_tasks'">Side tasks</button>
+    <button onclick="location.href='/run_guild_bosss'">Guild Boss</button>
+    <button onclick="location.href='/run_guild'">Guild</button>
+    <button onclick="location.href='/run_arena'">Arena</button>
+
+</div>
+
+<!-- TRIAL TAB -->
+<div id="trial" class="tab">
+    <h2>Trial Tasks</h2>
+    <button onclick="location.href='/run_trial_fire'">Trial fire</button>
+    <button onclick="location.href='/run_trial_water'">Trial water</button>
+    <button onclick="location.href='/run_trial_wind'">Trial wind</button>
+    <button onclick="location.href='/run_trial_oni'">Trial oni</button>
+
+</div>
+
+<!-- SETTINGS TAB -->
+<div id="settings" class="tab">
+    <h2>Bot Configurations</h2>
+    <form method="POST" action="/update_config">
+        Delay:<br>
+        <input name="delay" type="number" step="0.1" value="{{delay}}"><br><br>
+        Threshold:<br>
+        <input name="threshold" type="number" step="0.01" value="{{threshold}}"><br><br>
+        <button type="submit">Update Config</button>
+    </form>
+</div>
+
+</body>
+</html>

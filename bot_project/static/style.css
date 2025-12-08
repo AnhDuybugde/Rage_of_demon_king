@@ -1,0 +1,135 @@
+/* ==========================
+   GLOBAL
+========================== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f1115;
+    color: #eaeaea;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #66c2ff;
+    font-weight: 600;
+}
+
+/* ==========================
+   NAV MENU (Tabs)
+========================== */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 0 10px;
+    background: #1b1f27;
+    color: #cfd6e0;
+    border: 1px solid #2a2f3a;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+nav a:hover {
+    background: #2c323f;
+    color: #66c2ff;
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   TABS
+========================== */
+.tab {
+    display: none;
+    padding: 20px;
+    background: #1b1f27;
+    border-radius: 10px;
+    border: 1px solid #2d333f;
+}
+
+.tab.active {
+    display: block;
+}
+
+h2 {
+    margin-top: 0;
+    color: #66c2ff;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+button {
+    background: #1789fc;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0d6fd6;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+/* ==========================
+   INPUT FIELDS
+========================== */
+input[type="number"] {
+    width: 200px;
+    padding: 10px;
+    margin-top: 6px;
+    background: #14171d;
+    border: 1px solid #2d333f;
+    color: #eaeaea;
+    border-radius: 6px;
+}
+
+input[type="number"]:focus {
+    border-color: #1789fc;
+    outline: none;
+}
+
+/* ==========================
+   LIVE MONITOR IMAGE
+========================== */
+img {
+    border: 2px solid #2d333f;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* ==========================
+   LOG LIST
+========================== */
+ul {
+    margin-top: 20px;
+    background: #1b1f27;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #2d333f;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+ul li {
+    background: #14171d;
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #1789fc;
+}
