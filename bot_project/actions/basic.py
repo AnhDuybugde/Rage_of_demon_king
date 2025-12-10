@@ -146,6 +146,7 @@ def auto_battle(next,n):
             break
     tap(486,39)
     tap(486,39)
+    click_button("back")
 
 def auto_arena(list_images,next,timeout):
     # đợi trận kết thúc

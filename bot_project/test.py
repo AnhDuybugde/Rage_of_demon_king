@@ -2,10 +2,8 @@ import cv2
 import numpy as np
 import time
 from ppadb.client import Client
-from PIL import Image
-
 from actions.basic import tap, convert_damage
-from actions.advanced import guild
+from actions.advanced import guild, log_out, puppet
 from actions.OCR import crop_region, read_number, read_easy
 
 # ==================== ADB CONNECT ====================
@@ -15,7 +13,13 @@ device = client.device("127.0.0.1:5555")
 if __name__ == "__main__":
     print("=== START ===")
 
-    guild()
+    puppet()
+
+
+    print("=== FINISHED ===")
+
+
+
     
     # img_path = r"C:/Users/jloy5/OneDrive/Documents/XuanZhi9/Pictures/Screenshots/Screenshot_20251208-093751.png"
 
@@ -33,7 +37,3 @@ if __name__ == "__main__":
     # # chuyển "230.61M" thành số thật
     # value = convert_damage(dmg_text)
     # print("DMG:", value)
-
-
-    print("=== FINISHED ===")
-

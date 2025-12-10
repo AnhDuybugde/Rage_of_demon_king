@@ -25,7 +25,7 @@
     <a onclick="openTab('daily')">Daily Tasks</a>
     <a onclick="openTab('trial')">Trial</a>
     <a onclick="openTab('settings')">Settings</a>
-    <a onclick="openTab('monitor')">Live Monitor</a>
+    <a onclick="openTab('Log')">Log Out</a>
 </nav>
 
 <!-- DAILY TAB -->
@@ -36,12 +36,15 @@
     <button onclick="location.href='/run_guild_bosss'">Guild Boss</button>
     <button onclick="location.href='/run_guild'">Guild</button>
     <button onclick="location.href='/run_arena'">Arena</button>
+    <button onclick="location.href='/run_x_arena'">X-Arena</button>
+    <button onclick="location.href='/run_legion'">Legion</button>
 
 </div>
 
 <!-- TRIAL TAB -->
 <div id="trial" class="tab">
     <h2>Trial Tasks</h2>
+    <button onclick="location.href='/run_trial_all'">TRIAL ALL</button>
     <button onclick="location.href='/run_trial_fire'">Trial fire</button>
     <button onclick="location.href='/run_trial_water'">Trial water</button>
     <button onclick="location.href='/run_trial_wind'">Trial wind</button>
@@ -61,5 +64,13 @@
     </form>
 </div>
 
+<!-- LOG OUT -->
+<div id="Log" class="tab">
+    <a href="/log_out" class="logout-btn">Logout</a>    
+    <button onclick="location.href='/run_puppet'">Puppet</button>
+    <button onclick="location.href='/run_oni'">Oni</button>
+    <button onclick="location.href='/run_infinity'">Infinity</button>
+
+</div>
 </body>
 </html>
