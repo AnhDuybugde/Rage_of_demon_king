@@ -582,3 +582,7 @@ button:active {
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
 }
+
+a {
+  color: white;
+}

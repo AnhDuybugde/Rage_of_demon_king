@@ -8,7 +8,8 @@ from app import stop_event
 
 from actions.advanced import (
     zenith_coin, claim_8h, 
-    daily_trial, hidden_page, infinity, pillar_training, pillar, oni_house, guild,log_out,x_arena,puppet, legion,scrape_groups, 
+    daily_trial, hidden_page, infinity, pillar_training, pillar, oni_house, guild,log_out,x_arena,puppet, legion,
+    scrape_groups, event_couple,
     guild_boss, arena_automatic )
 
 from actions.OCR import crop_region, read_number, read_text
@@ -35,7 +36,7 @@ def auto_trial(pillars):
     pillar_training(pillars)
 
 def auto_guild_bosss():
-    guild_boss(5.0)
+    guild_boss(10.0)
     time.sleep(1)
 
 def auto_guild():
@@ -43,7 +44,7 @@ def auto_guild():
 
 
 def auto_arena():
-    arena_automatic(n=1)
+    arena_automatic(n=5)
 
 def auto_log():
     log_out()
@@ -65,6 +66,9 @@ def auto_legion():
 
 def auto_craw():
     scrape_groups()
+
+def auto_couple():
+    event_couple(10)
 # ==================== ADB CONNECT ====================
 # client = Client(host="127.0.0.1", port=5037)
 # device = client.device("127.0.0.1:5555")

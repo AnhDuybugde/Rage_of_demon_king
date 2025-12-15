@@ -167,6 +167,12 @@ def run_legion():
 def run_scraping():
     start_task(bot_tasks.auto_craw())
     return redirect(url_for('index'))
+
+@app.route("/run_game_couple")
+def run_game_couple():
+    start_task(bot_tasks.auto_couple())
+    return redirect(url_for('index'))
+
 # ---------------- SETTINGS ----------------
 @app.route("/update_config", methods=['POST'])
 def update_config():
