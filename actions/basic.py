@@ -82,7 +82,7 @@ def click_button(name, threshold=0.8, timeout=5):
     """Tìm và click nút trong X giây."""
     start = time.time()
     while time.time() - start < timeout:
-        screen = screenshot_cv()
+        screen = stable_screenshot(n=2)
         pos = find_button(screen, name, threshold)
 
         if pos:
@@ -118,7 +118,7 @@ def wait_for(image_name, timeout=8):
 
 def wait_for_any(list_images, end_button, timeout):
     start = time.time()
-    screen = screenshot_cv()
+    screen = stable_screenshot(n=2)
 
     while True:
         for img in list_images:

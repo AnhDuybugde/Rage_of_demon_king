@@ -76,8 +76,11 @@ def pillar_training(list):
     for name in list:
         click_button(name)
         click_button("yellow_rush")
+        time.sleep(0.5)
         tap(100,600)
+        time.sleep(0.5)
         click_button("yellow_rush")
+        time.sleep(0.5) 
         tap(100,600)
         click_button("fight")
         time.sleep(1)
@@ -91,10 +94,10 @@ def pillar():
     click_button("pillar_2")
     time.sleep(0.2)
     click_button("shinobu")
-    for i in range(20):
+    for i in range(30):
         tap(614,590)
-        time.sleep(0.4)
-    tap(21,30)
+        time.sleep(0.5)
+    click_button("back")
     time.sleep(1)
     click_button("back")
     time.sleep(0.5)
@@ -107,9 +110,12 @@ def oni_house():
     click_button("quick_select")
     click_button("yellow_enter")
     click_button("claim_reward")
-    time.sleep(0.05)
+    time.sleep(0.5)
     tap(600,600)
+    time.sleep(0.5)
     click_button("rush")
+    time.sleep(0.3)
+    tap(600,600)
     click_button("confirm")
     time.sleep(8)
     tap(600,600)
@@ -164,7 +170,7 @@ def guild_boss(thressholds):
     for i in range(5):
         while True:
             if click_button("challenge"):
-                time.sleep(2)
+                time.sleep(0.2)
                 skip_until(thressholds)
             if click_button("victory"):
                 break
@@ -285,9 +291,9 @@ def guild():
 
 def log_out():
     tap(63,70)
-    time.sleep(0.3)
+    time.sleep(0.6)
     tap(1080,663)
-    time.sleep(2)
+    time.sleep(3)
     click_button("close")
     time.sleep(0.3)
     tap(963,166)
@@ -359,16 +365,11 @@ def legion(lockdown):
 def crawl(group_index):
 
     OPPONENT_TAPS = [
-    (200, 300),
-    (200, 450),
-    (200, 600),
-    (200, 750)
+    (460, 180),
+    (460, 280),
+    (460, 380),
+    (460, 480)
     ]
-
-    CLOSE_BUTTON = (900, 200)
-
-    NAME_REGION   = (100, 200, 700, 260)
-    POWER_REGION  = (100, 330, 700, 390)
 
     results = []
 
@@ -380,11 +381,14 @@ def crawl(group_index):
         tap(x, y)
         time.sleep(1)
 
-        scrren = stable_screenshot(n=2)
-        img = read_text(scrren, "0123456789BMK.")
+        tap(235,245) 
 
-        name = read_text(img, NAME_REGION)
-        power = read_text(img, POWER_REGION)
+        time.sleep(3)
+        screen = stable_screenshot(n=3)
+        img = crop_region(screen,326,119,867,373)
+
+        name = read_easy(crop_region(img,352,42, 537,71),"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-")
+        power = read_easy(crop_region(img,65, 233, 138,251),"0123456789BMK.")
 
         print(f"- Name: {name}")
         print(f"- Power: {power}\n")
@@ -394,7 +398,7 @@ def crawl(group_index):
             "power": power
         })
 
-        tap(*CLOSE_BUTTON)
+        tap(1130, 87)
         time.sleep(0.4)
 
     return results
@@ -406,6 +410,8 @@ def scrape_groups():
     for group in range(1, 17):
         group_data = crawl(group)  # crawl phải trả về list các dict, ví dụ [{"player": "...", "power": "..."}]
         all_opponents.extend(group_data)
+        tap(800,650)
+        time.sleep(1)
 
     print("Done scraping 64 opponents.")
 
@@ -421,5 +427,26 @@ def scrape_groups():
             writer.writeheader()
             writer.writerows(all_opponents)
 
+
     print(f"Saved CSV to {file_path}")
     return all_opponents
+
+
+def event_couple(n):
+    for i in range(n):
+        print(f"---Round {i+1}/{n}---")
+        click_button("battle")
+        time.sleep(1)
+        tap(978,140)
+        time.sleep(0.5)
+        tap(1090,140)
+        time.sleep(0.5)
+        # tap(1200,140)
+        # time.sleep(0.5)
+        click_button("yellow_battle")
+        time.sleep(3.5)
+        for _ in range(3):
+            click_button("skip")
+            time.sleep(0.2)
+        click_button("save")
+        click_button("x")
